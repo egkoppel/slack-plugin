@@ -80,6 +80,24 @@ public class StandardSlackService implements SlackService {
             attachment.put("text", message);
             attachment.put("fallback", message);
             attachment.put("color", color);
+            
+            JSONObject workingBtn = new JSONObject();
+            workingBtn.put("name", "working");
+            workingBtn.put("value", "working");
+            workingBtn.put("type", "button");
+            workingBtn.put("text", "Working on it");
+            
+            JSONObject fixedBtn = new JSONObject();
+            fixedBtn.put("name", "fixed");
+            fixedBtn.put("value", "fixed");
+            fixedBtn.put("type", "button");
+            fixedBtn.put("text", "Fixed it");
+            
+            JSONArray actions = new JSONArray();
+            actions.put(workingBtn);
+            actions.put(fixedBtn);
+            
+            attachment.put("actions", actions);
 
             JSONArray mrkdwn = new JSONArray();
             mrkdwn.put("pretext");
