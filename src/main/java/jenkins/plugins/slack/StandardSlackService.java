@@ -81,6 +81,7 @@ public class StandardSlackService implements SlackService {
             attachment.put("fallback", message);
             attachment.put("color", color);
             
+            if (color == "danger") {
             JSONObject workingBtn = new JSONObject();
             workingBtn.put("name", "working");
             workingBtn.put("value", "working");
@@ -98,6 +99,7 @@ public class StandardSlackService implements SlackService {
             actions.put(fixedBtn);
             
             attachment.put("actions", actions);
+            }
 
             JSONArray mrkdwn = new JSONArray();
             mrkdwn.put("pretext");
